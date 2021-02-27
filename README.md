@@ -1,0 +1,1 @@
+# resize_app_django
