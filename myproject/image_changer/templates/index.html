@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+</head>
+<body>
+	<h1>Список изображений</h1>
+	{% if images%}
+		{% for image in images %}
+			<p><a href={% url 'change-size' image.id %}>{{image.name}}</a></p>
+		{% endfor %}
+	{% else %}
+		<p>Нет доступных изображений</p>
+	{% endif %}
+	<p><a href={% url 'load-image' %}>Добавить изображение</a></p>
+</body>
+</html>

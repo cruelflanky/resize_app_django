@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+</head>
+<body>
+	<p><a href={% url 'home' %}>Назад к списку</a></p>
+	<h1>Новое изображение</h1>
+	<form method="post" action={% url 'load-image' %} enctype="multipart/form-data">
+		{% csrf_token %}
+		<p><label for="image_url">Ссылка: </label><br>
+		{{form.image_url}}<br></p>
+		<p><label for="image_file">Файл: </label><br>
+		{{form.image_file}}<br></p>
+		<p><input type="submit" value="Отправить"></p>
+	</form>
+	{% for message in messages%}
+		<p>{{message}}</p>
+	{% endfor %}
+</body>
+</html>
